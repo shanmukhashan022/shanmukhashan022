@@ -24,14 +24,13 @@ pipeline {
               sh withCredentials([string(credentialsId: 'DOCKER', variable: 'passwd')]) {
               sh 'docker login -u shanmukhashan022 -p ${passwd}'
               sh 'docker build -t shanmukhashan022/new_jenkins1:${BUILD_NUMBER} .'
+              }
             }
         }
 
         stage('Push Image to Docker Hub') {
           steps {
-           
            sh    'docker push shanmukhashan022/new_jenkins1:${BUILD_NUMBER}'
-           }
           }
         }
 
