@@ -35,13 +35,6 @@ pipeline {
                 sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
                 sh    'docker push shanmukhashan022/new_jenkins1:tagname'
             }
-        stage('Push Image to Docker Hub') {
-          steps {
-              // This step should not normally be used in your script. Consult the inline help for details.
-              withDockerContainer(args: 'docker push', image: 'shanmukhashan022/new_jenkins1:${BUILD_NUMBER}') {
-              sh    'docker push shanmukhashan022/new_jenkins1:tagname'
-            }
-          }
         }
 
         stage('Deploy to Docker Host') {
