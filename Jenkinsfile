@@ -30,8 +30,8 @@ pipeline {
 
         stage('Push Image to Docker Hub') {
           steps {
-              sh withCredentials([string(credentialsId: 'DOCKER', variable: 'passwd')]) {
-              sh 'docker login -u shanmukhashan022 -p ${passwd}'
+              // This step should not normally be used in your script. Consult the inline help for details.
+              withDockerContainer(args: 'docker push', image: 'shanmukhashan022/new_jenkins1:${BUILD_NUMBER}') {
               sh    'docker push shanmukhashan022/new_jenkins1:tagname'
             }
           }
