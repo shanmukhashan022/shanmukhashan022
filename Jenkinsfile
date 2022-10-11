@@ -23,10 +23,9 @@ pipeline {
             }
         }
 
-        stage('Deploy to Docker Host') {
+        stage('Deploy to nginx') {
             steps {  
-                sh    'docker -H tcp://3.108.61.54:2375 stop prodwebapp1 || true'
-                sh    'docker -H tcp://3.108.61.54:2375 run --rm -dit --name prodwebapp1 --hostname prodwebapp1 -p 8000:80 shanmukhashan022/new_jenkins'
+                sh    'docker run --name mynginx -d -p 8000:80 nginx'
             }
         }
 
