@@ -30,7 +30,7 @@ pipeline {
             }
             steps {
                 sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
-                sh    'docker push shanmukhashan022/new_jenkins1:tagname'
+                sh    'docker push shanmukhashan022/new_jenkins1:${BUILD_NUMBER}'
             }
         }
 
