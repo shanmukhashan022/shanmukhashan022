@@ -36,8 +36,8 @@ pipeline {
 
         stage('Deploy to Docker Host') {
             steps {  
-                sh    'docker -H stop prodwebapp1 || true'
-                sh    'docker -H run --rm -dit --name prodwebapp1 --hostname prodwebapp1 -p 8000:80 shanmukhashan022/new_jenkins'
+                sh    'docker stop prodwebapp1 || true'
+                sh    'docker run --rm -dit --name prodwebapp1 --hostname prodwebapp1 -p 8000:80 shanmukhashan022/new_jenkins'
             }
         }
 
