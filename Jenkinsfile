@@ -1,5 +1,6 @@
 pipeline {
-    agent any {          
+    agent any  
+      stages {
         stage('Clone Repo') {
           steps {
             sh 'rm -rf shanmukhashan022'
@@ -35,6 +36,5 @@ pipeline {
           sh ' curl http://43.205.208.230:8000'
           }
         }
-
-    }
+      }
 }
