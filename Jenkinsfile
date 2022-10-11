@@ -1,17 +1,5 @@
 pipeline {
-    agent any
-    tools {
-        maven "mvn 363"
-    }
-    stages {
-        stage('maven 363') {
-          steps {
-              script{ 
-                  sh "mvn clean package"
-              }
-          }
-        }
-              
+    agent any             
         stage('Clone Repo') {
           steps {
             sh 'rm -rf shanmukhashan022'
