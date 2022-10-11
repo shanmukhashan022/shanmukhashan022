@@ -20,12 +20,9 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-          steps {
-              sh withCredentials([string(credentialsId: 'DOCKER', variable: 'passwd')]) {
-              sh 'docker login -u shanmukhashan022 -p ${passwd}'
+            steps {
               sh 'docker build -t shanmukhashan022/new_jenkins1:${BUILD_NUMBER} .'
               }
-            }
         }
         stage('Push Docker image') {
             environment {
