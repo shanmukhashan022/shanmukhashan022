@@ -1,5 +1,5 @@
 pipeline {
-    agent any             
+    agent any {          
         stage('Clone Repo') {
           steps {
             sh 'rm -rf shanmukhashan022'
