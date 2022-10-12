@@ -18,7 +18,7 @@ spec:
       - name: nginx
         image: shanmukhashan022/new_jenkins1
         ports:
-        - containerPort: 807${BUILD_NUMBER}
+        - containerPort: 8000
         imagePullPolicy: Always
 ---
 apiVersion: v1
