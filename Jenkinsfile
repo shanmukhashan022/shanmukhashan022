@@ -22,12 +22,6 @@ pipeline {
                 sh    'docker push shanmukhashan022/new_jenkins1:${BUILD_NUMBER}'
             }
         }
-
-        stage('Deploy to nginx') {
-            steps {  
-                sh    'docker run --name nginx${BUILD_NUMBER} -d -p 80${BUILD_NUMBER}:80 shanmukhashan022/new_jenkins1:${BUILD_NUMBER}'
-            }
-        }
           
         stage('K8S Deploy') {
             steps {
