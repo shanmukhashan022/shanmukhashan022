@@ -31,11 +31,6 @@ pipeline {
             }
         }
 
-        stage('Check WebApp Rechability') {
-          steps {
-          sh 'sleep 10s'
-          sh ' curl http://65.0.61.229:30007'
-          }
-        }
+        
       }
 }
