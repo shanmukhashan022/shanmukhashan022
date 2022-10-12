@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: shanmukhashan022/new_jenkins1:79
+        image: shanmukhashan022/new_jenkins1
         ports:
         - containerPort: 8000
         imagePullPolicy: Always
