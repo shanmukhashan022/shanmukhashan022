@@ -28,11 +28,19 @@ pipeline {
                 sh    'docker run --name nginx${BUILD_NUMBER} -d -p 80${BUILD_NUMBER}:80 shanmukhashan022/new_jenkins1:${BUILD_NUMBER}'
             }
         }
+          
+        stage('K8S Deploy') {
+            steps {
+                withKubeConfig([credentialsId: 'K8S', serverUrl: '']) {
+                    sh ('kubectl apply -f  kubernetes/kube.yaml')
+                }
+            }
+        }
 
         stage('Check WebApp Rechability') {
           steps {
           sh 'sleep 10s'
-          sh ' curl http://3.108.61.54:80${BUILD_NUMBER}'
+          sh ' curl http://43.205.95.66:80${BUILD_NUMBER}'
           }
         }
       }
