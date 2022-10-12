@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-              sh 'docker build -t shanmukhashan022/new_jenkins1:${BUILD_NUMBER} .'
+              sh 'docker build -t shanmukhashan022/new_jenkins1:latest .'
               }
         }
         stage('Push Docker image') {
@@ -19,7 +19,7 @@ pipeline {
             }
             steps {
                 sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
-                sh    'docker push shanmukhashan022/new_jenkins1:${BUILD_NUMBER}'
+                sh    'docker push shanmukhashan022/new_jenkins1:latest'
             }
         }
           
@@ -34,7 +34,7 @@ pipeline {
         stage('Check WebApp Rechability') {
           steps {
           sh 'sleep 10s'
-          sh ' curl http://13.233.159.15:30007'
+          sh ' curl http://65.0.61.229:30007'
           }
         }
       }
