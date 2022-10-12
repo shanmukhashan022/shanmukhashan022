@@ -34,7 +34,7 @@ pipeline {
         stage('Check WebApp Rechability') {
           steps {
           sh 'sleep 10s'
-          sh ' curl http://43.205.95.66:80${BUILD_NUMBER}'
+          sh ' curl http://13.233.159.15:80${BUILD_NUMBER}'
           }
         }
       }
